@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>sign in</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+</head>
+
+<body>
+    <div class="container mt-3">
+        <form name="myForm" action="./login.html" onsubmit="return validateForm()">
+            <h1>Sign In This Form</h1>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+            <p id="errName" class="error"></p>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+            <p id="errEmail" class="error"></p>
+    
+            <label for="pass">password</label>
+            <input type="password" id="pass" name="pass">
+            <p id="errPassword" class="error"></p>
+    
+            <button type="submit" value="submit">Sign up</button>
+        
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            let errPassword = document.querySelector("#errPassword");
+            let errEmail = document.querySelector("#errEmail");
+            let errName = document.querySelector("#errName");
+
+
+            let name = document.forms["myForm"]["name"].value;
+            if (name == "") {
+                errName.innerHTML = "Please enter name...";
+                return false;
+            }
+
+            let email = document.forms["myForm"]["email"].value;
+            if (email == "") {
+                errEmail.innerHTML = "Please enter email...";
+                return false;
+            }
+            let password = document.forms["myForm"]["pass"].value;
+            if (password === "") {
+                errPassword.innerHTML = "Please enter password...";
+                return false;
+            } else {
+                console.log(password.length);
+            }
+            
+        }
+    </script>
+
+</body>
+
+</html>
